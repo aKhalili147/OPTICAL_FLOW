@@ -1,7 +1,12 @@
 SOURCES=$(wildcard *.c)
+OBJECTS=$(SOURCES:.c=.o)
 
-lucas_kanade: main.c lucas_kanade.c
+TARGET= lucas_kanade
+%.o : %.c 
+	gcc -c $^ -o $@ -g
+
+$(TARGET): $(OBJECTS)
 	gcc $^ -o $@
 
 clean: 
-	rm $(lucas_kanade) 
+	rm $(TARGET) $(OBJECTS)
