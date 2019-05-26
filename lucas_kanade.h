@@ -33,13 +33,6 @@ typedef struct avgpixel
 }avgPixel;
 
 
-// resolution struct will store pixel array and average colors;
-typedef struct resStruct
-{
-    unsigned char **imageArray;
-    avgPixel *avgArray;
-}RES;
-
 FHeader readFileHeader(FILE* userGivenName); // reading all the contents of file to a STRUCTURE
 void printContent(FHeader image,char* fileName); // PRINTING CONTENT OF AN ARRAY
 void printImageArray(FHeader image); // PRINTING ONLY CONTENTS OF AN ARRAY
