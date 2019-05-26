@@ -42,11 +42,6 @@ FHeader readFileHeader(FILE* fp) {
             fseek(fp,padding,SEEK_CUR);
     }
 
-/*    for(int i=0;i<3;i++)
-        for(int j=0;j<3*(image.npp/8);j++)
-            printf("image[%d][%d]:%d\n",i,j,image.imageArray[i][j] );*/
-
-    // fread(*image.imageArray,image.npp/8,image.width*image.height*(image.npp/8),fp);
     fclose(fp); 
     return image; // is a table of different characters that we have iside of file
 }
@@ -276,75 +271,3 @@ int range(int px11,int px12,int px13,int px21,int px22,int px23){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*unsigned char** compareImages(unsigned char **imageArray1,unsigned char **imageArray2,int width,int height,int ppx,int factor,int flag){
-    unsigned char** temp;
-    temp = calloc(height,sizeof(unsigned char*));
-    for(int i=0;i<height;i++)
-        temp[i] = calloc(width*ppx,sizeof(unsigned char));
-
-    for(int i=0;i<height;i+=factor){
-        for(int j=0;j<width*ppx;j+=ppx*factor){
-            if(imageArray1[i][j] == imageArray2[i][j] && imageArray1[i][j+1] == imageArray2[i][j+1] && imageArray1[i][j+2] == imageArray2[i][j+2]){
-                for(int k=i;k<factor+i;k++){
-                    for(int l=j;l<factor*ppx+j;l+=ppx){
-                        temp[k][l] = imageArray2[i][j];
-                        temp[k][l+1] = imageArray2[i][j+1];
-                        temp[k][l+2] = imageArray2[i][j+2];
-                        if(flag == 1)
-                            temp[k][l+3] = imageArray2[i][j+3];
-                    }
-                }                
-            }
-            else{
-                // printf("4\n");
-                for(int a=0;a<height;a++){
-                    for(int b=0;b<width*ppx;b+=ppx){
-                        
-                        if(a != i && b != j && imageArray1[i][j] == imageArray2[a][b] && imageArray1[i][j+1] == imageArray2[a][b+1] && imageArray1[i][j+2] == imageArray2[a][b+2]){
-                            // printf("5\n");
-                            for(int k=a;k<factor+a;k++){
-                                for(int l=b;l<factor*ppx+b;l+=ppx){
-                                    imageArray2[k][l] = 255;
-                                    imageArray2[k][l+1] = 0;
-                                    imageArray2[k][l+2] = 0;
-                                    if(flag == 1)
-                                        temp[k][l+3] = imageArray2[i][j+3];
-                                }
-                            }                            
-
-                        }
-                        else{
-                            for(int k=i;k<factor+i;k++){
-                                for(int l=j;l<factor*ppx+j;l+=ppx){
-                                    temp[k][l] = imageArray2[i][j];
-                                    temp[k][l+1] = imageArray2[i][j+1];
-                                    temp[k][l+2] = imageArray2[i][j+2];
-                                    if(flag == 1)
-                                        temp[k][l+3] = imageArray2[i][j+3];
-                                }
-                            }                             
-                        }
-
-                    }
-                }
-            }
-        }
-    }
-    return temp;
-}*/
